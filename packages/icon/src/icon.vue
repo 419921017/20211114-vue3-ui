@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>icon</span>
+    <i :class="`z-icon-${name}`"></i>
   </div>
 </template>
 
@@ -8,7 +8,13 @@
 import { defineComponent } from "@vue/runtime-core"
 
 export default defineComponent({
-  name: 'ZIcon'
+  name: 'ZIcon',
+  props: {
+    name: {
+      type: String,
+      default: ''
+    }
+  }
 })
  </script>
 
