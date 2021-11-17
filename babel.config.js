@@ -16,4 +16,15 @@ module.exports = {
     ],
     '@babel/plugin-proposal-class-properties',
   ],
+  env: {
+    utils: {
+      plugins: [
+        // ?
+        [
+          'babel-plugin-module-resolver', // 为了能正确找到z-ui模块
+          { root: 'z-ui' },
+        ],
+      ],
+    },
+  },
 };

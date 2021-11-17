@@ -1,0 +1,50 @@
+@import './../../theme-chalk/src/mixins/mixins.scss';
+
+@include b(button) {
+  // BEM规范
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: #fafafa;
+  border-radius: 5px;
+  user-select: none;
+  min-height: 40px;
+  line-height: 1;
+  vertical-align: middle;
+  & [class^='#{$namespace}-icon-'] {
+    & + span {
+      margin-left: 15px;
+    }
+  }
+  @include when(disabled) {
+    // 针对不同类型处理
+    &,
+    &:hover,
+    &:focus {
+      cursor: not-allowed;
+    }
+  }
+  @include when(round) {
+    border-radius: 20px;
+    padding: 12px 23px;
+  }
+  @include when(loading) {
+    pointer-events: none;
+  }
+  @include m(primary) {
+    //渲染不同类型的button
+    @include button-variant($--color-white, $--color-primary, $--color-primary);
+  }
+  @include m(success) {
+    @include button-variant($--color-white, $--color-success, $--color-success);
+  }
+  @include m(warning) {
+    @include button-variant($--color-white, $--color-warning, $--color-warning);
+  }
+  @include m(danger) {
+    @include button-variant($--color-white, $--color-danger, $--color-danger);
+  }
+  @include m(info) {
+    @include button-variant($--color-white, $--color-info, $--color-info);
+  }
+}
