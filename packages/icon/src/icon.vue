@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <i :class="`z-icon-${name}`"></i>
-  </div>
+  <i :class="`z-icon-${name}`"></i>
 </template>
 
  <script lang="ts">

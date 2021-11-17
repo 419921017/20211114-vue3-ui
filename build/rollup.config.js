@@ -12,21 +12,27 @@ function resolve(dir) {
   return path.resolve(__dirname, dir);
 }
 
-export default inputs.map((input) => {
+export default inputs.map((name) => {
+  const pkgName = name.split('@z-ui/')[1];
+
   return {
-    input: resolve('../packages/z-ui/index.ts'),
-    output: { format: 'es', file: 'lib/index.esm.js' },
+    input: resolve(`../packages/${pkgName}/index.ts`),
+    output: { format: 'es', file: `lib/${pkgName}/index.js` },
     plugins: [
       nodeResolve(),
       vue({ target: 'browser' }),
       typescript({
         tsconfigOverride: {
+          compilerOptions: {
+            // 打包单个组件的时候不生成ts声明文件
+            declaration: false,
+          },
           exclude: ['node_modules', 'website'],
         },
       }),
     ],
     external(id) {
-      return /^vue/.test(id);
+      return /^vue/.test(id) || /^@z-ui/.test(id);
     },
   };
 });

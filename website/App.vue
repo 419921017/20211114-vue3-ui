@@ -1,4 +1,4 @@
 <template>
   <z-button></z-button>
-  <z-icon name="bi" />
-</template>``
+  <z-icon name="1" />
+</template>

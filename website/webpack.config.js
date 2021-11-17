@@ -32,7 +32,15 @@ const config = {
     rules: [
       { test: /\.(ts|js)x?$/, use: ['babel-loader'], exclude: /node_modules/ },
       { test: /\.vue$/, loader: 'vue-loader' },
-      { test: /\.(svg|otf|ttf|woff|woff2|eot|gif|png)$/, use: ['url-loader'] },
+      {
+        test: /\.(svg|otf|ttf|woff|woff2|eot|gif|png)$/,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8 * 1024, // 限制于 8kb
+          },
+        },
+      },
       {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
