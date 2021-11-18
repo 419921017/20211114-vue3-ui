@@ -1,0 +1,26 @@
+{
+  "name": "@z-ui/col",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "power_840 <liuyu19921017@gmail.com>",
+  "homepage": "https://github.com/419921017/20211114-vue3-ui#readme",
+  "license": "ISC",
+  "main": "lib/col.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/419921017/20211114-vue3-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/419921017/20211114-vue3-ui/issues"
+  }
+}
