@@ -6,11 +6,11 @@
   >
     <i
       v-if="loading"
-      name="loading"
+      class="z-icon-loading"
     ></i>
     <i
       v-if="icon && !loading"
-      :class="icon"
+      :class="`z-icon-${icon}`"
     ></i>
     <span v-if="$slots.default">
       <slot></slot>

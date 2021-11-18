@@ -26,6 +26,7 @@ const config = {
     extensions: ['.wasm', '.ts', '.tsx', '.mjs', '.cjs', '.js', '.json'],
     alias: {
       vue: '@vue/runtime-dom',
+      package: resolve('../packages'),
     },
   },
   module: {

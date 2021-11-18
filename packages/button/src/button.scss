@@ -1,4 +1,4 @@
-@import './../../theme-chalk/src/mixins/mixins.scss';
+@import '~package/theme-chalk/src/mixins/mixins.scss';
 
 @include b(button) {
   // BEM规范
@@ -11,6 +11,7 @@
   min-height: 40px;
   line-height: 1;
   vertical-align: middle;
+  padding: 0 15px;
   & [class^='#{$namespace}-icon-'] {
     & + span {
       margin-left: 15px;
