@@ -16,20 +16,42 @@ export default defineComponent({
       type: Number,
       default: 0,
     },
-    size: {
-      type: String,
-      default: 'md',
+    xs: {
+      type: Number,
+      default: 24,
+    },
+    sm: {
+      type: Number,
+      default: 24,
+    },
+    md: {
+      type: Number,
+      default: 24,
+    },
+    lg: {
+      type: Number,
+      default: 24,
+    },
+    xl: {
+      type: Number,
+      default: 24,
     },
   },
   setup(props, ctx) {
     const gutter = inject('ZRow', 0);
     const pos = ['span', 'offset'] as const;
+    const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
     const classes = computed(() => {
       const ret: string[] = [];
       pos.forEach((item) => {
         const size = props[item];
         if (typeof size == 'number' && size > 0) {
           ret.push(`z-col-${item}-${props[item]}`);
+        }
+      });
+      sizes.forEach((size) => {
+        if (typeof props[size] === 'number') {
+          ret.push(`z-col-${size}-${props[size]}`);
         }
       });
       return ['z-col', ...ret];
@@ -45,6 +67,7 @@ export default defineComponent({
       }
       return {};
     });
+
     return () =>
       h(
         props.tag,
